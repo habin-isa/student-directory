@@ -22,6 +22,12 @@ def print_header
   puts "The students of my cohort at Makers Academy"
   puts "-------------"
 end
+#print student names with each
+def print_with_each(students)
+  while !students.empty? do
+    puts "#{student[:name]} (#{student[:cohort]}, they like #{student[:hobbies]})"
+  end
+end
 #print student names with index
 def print_with_index(students)
   students.each_with_index do |student, index|
