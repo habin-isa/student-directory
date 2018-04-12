@@ -7,12 +7,17 @@ def input_students
   # get the first name
   name = gets.chomp
   # while the name is not empty, repeat this code
-  while !name.empty? do
+  # ask for the cohort
+  puts "Please enter the cohort"
+  cohort = gets.chomp
+  while !name.empty? && !cohort.empty? do
     # add the student hash to the array
-    students << {name: name, cohort: :november, hobbies: :polo, country: :korea}
+    students << {name: name, cohort: cohort, hobbies: :polo, country: :korea}
     puts "Now we have #{students.count} students"
     # get another name from the user
     name = gets.chomp
+    # ask for the cohort
+    cohort = gets.chomp
   end
   # return the array of students
   students
@@ -27,7 +32,7 @@ end
 #center print_with_each
 def print_with_each(students)
     students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]}) cohort, they like #{student[:hobbies]}, they were born in #{student[:country]}".center(150)
+    puts "#{student[:name]} (#{student[:cohort.to_sym]}) cohort, they like #{student[:hobbies]}, they were born in #{student[:country]}".center(150)
   end
 end
 #print student names with index
