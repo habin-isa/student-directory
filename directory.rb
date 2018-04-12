@@ -28,18 +28,23 @@ def print(students)
     puts "#{index}: #{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
-
+#print student names starting with b
 def print_starting_with(students)
   students.each do |student|
     puts "#{student[:name]} (#{student[:cohort]} cohort)" if student[:name].start_with?("b")
 end
 end
-
+#print student names that are shorter than 12 characters
+def print_under_twelve_characters(students)
+  students.each do |student|
+    puts "#{student[:name]} (#{student[:cohort]} cohort)" if student[:name].size < 12
+  end
+end
 def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
 #nothing happens until we call the methods
 students = input_students
 print_header
-print_starting_with(students)
+print_under_twelve_characters(students)
 print_footer(students)
