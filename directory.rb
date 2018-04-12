@@ -18,14 +18,16 @@ def input_students
   students
 end
 ####Add more information: hobbies, country of birth, height, etc.
+#center header
 def print_header
-  puts "The students of my cohort at Makers Academy"
-  puts "-------------"
+  puts "The students of my cohort at Makers Academy".center(150)
+  puts "-------------".center(150)
 end
 #print student names with each
+#center print_with_each
 def print_with_each(students)
     students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]}) cohort, they like #{student[:hobbies]}, they were born in #{student[:country]}"
+    puts "#{student[:name]} (#{student[:cohort]}) cohort, they like #{student[:hobbies]}, they were born in #{student[:country]}".center(150)
   end
 end
 #print student names with index
@@ -46,8 +48,9 @@ def print_under_twelve_characters(students)
     puts "#{student[:name]} (#{student[:cohort]} cohort)" if student[:name].size < 12
   end
 end
+#center footer
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students"
+  puts "Overall, we have #{students.count} great students".center(150)
 end
 #nothing happens until we call the methods
 students = input_students
