@@ -29,11 +29,17 @@ def print(students)
   end
 end
 
+def print_starting_with(students)
+  students.each do |student|
+    puts "#{student[:name]} (#{student[:cohort]} cohort)" if student[:name].start_with?("b")
+end
+end
+
 def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
 #nothing happens until we call the methods
 students = input_students
 print_header
-print(students)
+print_starting_with(students)
 print_footer(students)
