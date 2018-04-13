@@ -14,7 +14,7 @@ def interactive_menu
       students = input_students
     when "2"
       print_header
-      print_with_each(students)
+      print_students_list(students)
       print_footer(students)
     when "9"
       exit # this will cause the program to terminate
@@ -55,7 +55,7 @@ def print_header
 end
 #print student names with each
 #center print_with_each
-def print_with_each(students)
+def print_students_list(students)
     students.each do |student|
     puts "#{student[:name]} (#{student[:cohort.to_sym]}) cohort, they like #{student[:hobbies]}, they were born in #{student[:country]}".center(150)
   end
