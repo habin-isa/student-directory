@@ -1,3 +1,28 @@
+#interactive menu
+def interactive_menu
+  students = []
+  loop do
+    # 1. print the menu and ask the user what to do
+    puts "1. Input the students"
+    puts "2. Show the students"
+    puts "9. Exit" # 9 because we'll be adding more items
+    # 2. read the input and save it into a variable
+    selection = gets.chomp
+    # 3. do what the user has asked
+    case selection
+    when "1"
+      students = input_students
+    when "2"
+      print_header
+      print_with_each(students)
+      print_footer(students)
+    when "9"
+      exit # this will cause the program to terminate
+    else
+      puts "I don't know what you meant, try again"
+    end
+  end
+end
 #lets put all students into an array
 def input_students
   puts "Please enter the names of the students"
@@ -19,9 +44,9 @@ def input_students
     # ask for the cohort
     cohort = gets.chomp
   end
-  # return the array of students
   students
-end
+  end
+  # return the array of students
 ####Add more information: hobbies, country of birth, height, etc.
 #center header
 def print_header
@@ -41,7 +66,6 @@ def print_with_index(students)
     puts "#{index}: #{student[:name]} (#{student[:cohort]} cohort, they like: #{student[:hobbies]})"
   end
 end
-#print student names starting with b
 def print_starting_with(students)
   students.each do |student|
     puts "#{student[:name]} (#{student[:cohort]} cohort)" if student[:name].start_with?("b")
@@ -58,7 +82,16 @@ def print_footer(students)
   puts "Overall, we have #{students.count} great students".center(150)
 end
 #nothing happens until we call the methods
-students = input_students
-print_header
-print_with_each(students)
-print_footer(students)
+interactive_menu
+
+
+
+
+###struggling with: Once you complete the previous exercise,
+#change the way the users are displayed: print them grouped by cohorts.
+#To do this, you'll need to get a list of all existing cohorts (the map()
+#  method may be useful but it's not the only option), iterate over it and
+#  only print the students from that cohort.
+#Right now if we have only one student, the user will see a message "Now we
+#have 1 students", whereas it should be "Now we have 1 student". How can you
+#fix it so that it used singular form when appropriate and plural form otherwise?
