@@ -4,21 +4,21 @@ def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
   # get the first name
-  name = gets.chomp
+  name = STDIN.gets.chomp
   # while the name is not empty, repeat this code
   while !name.empty? do
     # add the student hash to the array
     @students << {name: name, cohort: :november}
     puts "Now we have #{@students.count} students"
     # get another name from the user
-    name = gets.chomp
+    name = STDIN.gets.chomp
   end
 end
 
 def interactive_menu
   loop do
     print_menu
-    process(gets.chomp)
+    process(STDIN.gets.chomp)
   end
 end
 
